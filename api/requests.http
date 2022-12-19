@@ -1,0 +1,29 @@
+###
+POST http://localhost:3000/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre" : "luisito2",
+    "apellido": "comunica",
+    "usuario" : "tortuga",
+    "email": "Alvaro_mz@gmail.com",
+    "password": "mipapicr7",
+    "pokefavoritos": "meawtho"
+}
+
+###
+GET http://localhost:3000/api/usarios HTTP/1.1
+
+###
+GET http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
+
+###
+PUT http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
+Content-Type: application/json
+
+{
+
+}
+
+###
+DELETE http://localhost:3000/api/usuarios/639cd9f5faab81c61d2f0f8b HTTP/1.1
