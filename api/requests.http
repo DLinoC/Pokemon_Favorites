@@ -15,10 +15,14 @@ Content-Type: application/json
 GET http://localhost:3000/api/usuarios HTTP/1.1
 
 ###
+<<<<<<< HEAD
 GET http://localhost:3000/api/usuarios/tortuga HTTP/1.1
 
 ###
 GET http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
+=======
+GET http://localhost:3000/api/usuarios/63a32ce206b1acd6062e4436 HTTP/1.1
+>>>>>>> f7fa85afbb624745df6617d586fa7f2f24035067
 
 ###
 PUT http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
