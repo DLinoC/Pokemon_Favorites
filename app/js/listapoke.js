@@ -105,11 +105,11 @@ const llenarSelect = (lista) => {
         let url="http://localhost:3000/api/usuarios/63a231c6bc21e97d1b6747e3"
 
     let payload = {
-        nombre:"Michel",
-        apellido: "vacomix",
-        usuario: "NoobMaster69",
-        email: "Vacomilay@gmail.com",
-        password: "almohadin",
+        // nombre:"Michel",
+        // apellido: "vacomix",
+        // usuario: "NoobMaster69",
+        // email: "Vacomilay@gmail.com",
+        // password: "almohadin",
         pokefavoritos:arrayMoment
     }
 
