@@ -1,0 +1,39 @@
+img {
+    width: 100px;
+}
+/*Animacion letra escribiendo*/
+h1{
+    text-align: center;
+    margin:0 auto;
+    font-family: 'Ribeye', cursive;
+    font-size: 47px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 11ch;
+    animation: typing 2s steps(12), blink .5s infinite step-end alternate;
+    overflow:hidden;
+    text-align: center;
+}
+
+@keyframes typing {
+    from { width: 0}
+}
+
+@keyframes blink {
+    50% { border-color: transparent}
+}
+  /*Animacion letra escribiendo*/
+
+.container #imagen{
+    height: 320px;
+    width: 320px;
+}
+i{
+    margin-right: 10px;
+}
+.modal-header{
+    background-color: #2db973;
+}
+.btn.btn-success{
+    background-color: #2db973;
+}
