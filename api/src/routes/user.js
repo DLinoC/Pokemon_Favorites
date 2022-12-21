@@ -26,6 +26,13 @@ router.get('/usuarios/:id', (req, res) => {
         .then((data) => res.json(data))
         .catch( (e) => res.json({message: e}))
 })
+// AGREGADO A ULTIMA HORA
+// router.get('/usuarios/:user', (req, res) => {
+//     const { user } = req.params;
+//     userSchema.findOne( {usuario: user}, (usuario) =>{
+//         console.log(usuario);
+//     }).then((data) => res.json(data))
+// })
 
 // update a user
 router.put('/usuarios/:id', (req, res) => {
