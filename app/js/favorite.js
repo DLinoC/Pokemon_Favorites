@@ -4,9 +4,14 @@ const tabla = document.querySelector('#lista-usuarios tbody');
 let boton = document.getElementById("mostrar")
 
 // let obtusuarios = []
+let idusuario = JSON.parse(localStorage.getItem('idpoke'));
+
+console.log('Mostramos el id del usuario');
+console.log(idusuario);
+
 boton.addEventListener("click", function() {
     function cargarUsuarios() {
-        fetch(`http://localhost:3000/api/usuarios/63a231c6bc21e97d1b6747e3`)
+        fetch(`http://localhost:3000/api/usuarios/${idusuario}`)
             .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
             .then(usuarios => {
                 console.log(usuarios)
