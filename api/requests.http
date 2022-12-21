@@ -12,10 +12,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/usarios HTTP/1.1
+GET http://localhost:3000/api/usuarios HTTP/1.1
 
 ###
-GET http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
+GET http://localhost:3000/api/usuarios/63a32ce206b1acd6062e4436 HTTP/1.1
 
 ###
 PUT http://localhost:3000/api/usuarios/639ce150a42bcf29fb1acd95 HTTP/1.1
