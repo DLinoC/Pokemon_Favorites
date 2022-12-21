@@ -78,51 +78,56 @@ const validarPassword2 = () => {
 		campos['password'] = true;
 	}
 }
+
 inputs.forEach((input) => {
 	input.addEventListener('keyup', validarFormulario);
 	input.addEventListener('blur', validarFormulario);
 });
 
-let obtusuarios= [];
+// let obtusuarios= [];
+
 formulario.addEventListener('submit', (e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
 	if(campos.usuario && campos.nombre && campos.apellido && campos.password && campos.correo ){
 
-		let nombre= document.getElementById ("nombre");
-		let apellido= document.getElementById ("apellido");
-		let usuario= document.getElementById ("usuario");
-		let correo= document.getElementById ("correo");
-		let password= document.getElementById ("password");
+		let nombre= document.getElementById("nombre");
+		let apellido= document.getElementById("apellido");
+		let usuario= document.getElementById("usuario");
+		let correo= document.getElementById("correo");
+		let password= document.getElementById("password");
 
 		
 		fetch(`http://localhost:3000/api/usuarios`, {
-		method: 'POST',
-		mode: 'cors',
-		headers: {'Content-Type': 'application/json'},
-		body: JSON.stringify({
-		nombre: nombre.value,
-		apellido:apellido.value,
-		usuario:usuario.value,
-		email:correo.value,
-		password:password.value,
-		})
+			method: 'POST',
+			mode: 'cors',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+			nombre: nombre.value,
+			apellido:apellido.value,
+			usuario:usuario.value,
+			email:correo.value,
+			password:password.value,
+			})
 		})
 	
-		formulario.reset()
+		formulario.reset();
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-						setTimeout(() => { 
-							document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-						}, 5000);
+
+		setTimeout(() => { 
+			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+		}, 5000);
 			
 		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-						icono.classList.remove('formulario__grupo-correcto');
-					});
-		setTimeout(() => {
-					window.location.href="listapoke.html"
-					},1000)
-	           }	
-	else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-	}
+			icono.classList.remove('formulario__grupo-correcto')
+			})
+
+		setTimeout(() => {window.location.href="listapoke.html"},1000);
+			
+		}else {
+			document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+		}
+	
+	})
+

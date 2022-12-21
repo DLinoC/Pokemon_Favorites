@@ -53,8 +53,8 @@ formhtml.addEventListener('submit', async (e) => {
 
             localStorage.setItem('idpoke', JSON.stringify(uss[0]._id) );
 
-            // window.location.href = "favopoke.html"
-            // formhtml.reset();
+            window.location.href = "favopoke.html"
+            formhtml.reset();
         } else {
             indicarLlenado('gato');
         }
