@@ -1,0 +1,18 @@
+body {
+    background-image: url(../img/Profile.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img {
+    width: 100px;
+} 
+.container #img{
+    width: 500px;
+}
+.icono{
+    font-size: 100px;
+}
+.botones{
+    background-color: #0c1542;
+    color: white;
+}
