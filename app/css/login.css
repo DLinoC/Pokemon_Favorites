@@ -1,0 +1,83 @@
+body {
+    background-image: url('../img/Usuario.jpg');
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('../img/Sing-Up.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.navegacion {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+.navegacion a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.main {
+    max-width: 50rem;
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(134, 133, 133, 0.511);
+}
+#box_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_texto span {
+    display: block;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 28ch;
+
+    animation: 
+    typing 3s steps(28), 
+    blink .5s infinite step-end alternate;
+    overflow:hidden;
+}
+.box_texto .llenado {
+    width: 46ch;
+    animation: typing 3s steps(46), 
+}
+
+.box_texto .noexiste {
+    width: 43ch;
+    animation: typing 3s steps(43), 
+}
+
+#boton {
+    background-color: #0c1542;
+}
+
+
+@keyFrames typing {
+from { width: 0}
+}
+
+@keyFrames blink {
+ 50% { border-color: transparent}
+}
+
+.main__img {
+    width: 10rem;
+    display: block;
+    margin-right: 1rem;
+    /* margin: auto; */
+}
