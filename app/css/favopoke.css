@@ -1,0 +1,76 @@
+body {
+    background: rgb(249, 236, 229);
+}
+
+img {
+    width: 100px;
+}
+
+.container #img{
+    width: 500px;
+}
+
+/* Titulo animado */
+h1{
+    text-align: center;
+    margin:0 auto;
+    font-family: 'Ribeye', cursive;
+    font-size: 47px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 19ch;
+    animation: typing 2s steps(18), blink .5s infinite step-end alternate;
+    overflow:hidden;
+    text-align: center;
+}
+
+@keyframes typing {
+    from { width: 0}
+}
+
+@keyframes blink {
+    50% { border-color: transparent}
+}
+
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .lists__pokemons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 2em;
+    padding: 1em;
+    text-align: center;
+  }
+  .pokemon__img {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 8em;
+    color: rgb(7, 7, 7);
+    padding: 0.5em;
+  }
+  .pokemon__img img {
+    height: 200px;
+    width: 100%;
+    margin-top: -5em;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 2em auto 2em;
+  }
+  
+
+
