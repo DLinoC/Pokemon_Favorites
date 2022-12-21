@@ -1,7 +1,7 @@
 <h1 align="center">Pokemon Favorite</h1>
-<!-- <p align="center">
-  <img src="/Time_is_Money_S9_S11/img/Time_is_Money.jpg" width="600px" height="400px">
-</p> -->
+<p align="center">
+  <img src="./app/img/Pantalla-de-inicio.jpeg" width="600px" height="400px">
+</p>
 
 ## Características de la pagina web de Pokemon Favorite:
 ### Ha sido estructurado con los lenguajes:
