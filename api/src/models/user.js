@@ -21,10 +21,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     }, 
-    pokefavoritos: {
-        type: Array,
-        required: true,
-    }
+    pokefavoritos:[
+        // type: Array,
+        // required: true,
+    ]
 
 }); 
 
