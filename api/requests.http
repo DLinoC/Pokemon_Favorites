@@ -18,7 +18,11 @@ GET http://localhost:3000/api/usuarios HTTP/1.1
 GET http://localhost:3000/api/usuarios/tortuga HTTP/1.1
 
 ###
+<<<<<<< HEAD
+GET http://localhost:3000/api/usuarios/63a231c6bc21e97d1b6747e3 HTTP/1.1
+=======
 GET http://localhost:3000/api/usuarios/63a3b2408d0138ba81971f49 HTTP/1.1
+>>>>>>> 1e4788f57b6139b184b99a11465e9b66062d819e
 # GET http://localhost:3000/api/usuarios/63a32ce206b1acd6062e4436 HTTP/1.1
 
 ###

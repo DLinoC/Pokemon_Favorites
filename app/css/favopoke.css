@@ -1,5 +1,9 @@
 body {
-    background: rgb(249, 236, 229);
+  background: rgb(249, 236, 229);
+  background-image: url(../img/Profile.jpg);
+  background-image: url(../img/fondo_1.jpg);
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/fondo_1.jpg");
 }
 
 img {
@@ -11,7 +15,7 @@ img {
 }
 
 /* Titulo animado */
-h1{
+h2{
     text-align: center;
     margin:0 auto;
     font-family: 'Ribeye', cursive;

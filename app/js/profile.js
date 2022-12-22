@@ -2,8 +2,9 @@
 const nombre=document.getElementById("nombre")
 const apellido=document.getElementById("apellido")
 const email=document.getElementById("email")
+let idusuario = JSON.parse(localStorage.getItem('idpoke'));
 const usuario=document.getElementById("usuario")
-const contraseña=document.getElementById("contraseña")
+const contrasenia=document.getElementById("password")
 
 const editar=document.getElementById("editar")
 const guardar=document.getElementById("guardar")
@@ -15,7 +16,7 @@ editar.addEventListener("click",(e)=>{
     apellido.disabled = false
     email.disabled = false
     usuario.disabled = false
-    contraseña.disabled = false
+    contrasenia.disabled = false
 })
 
 // Mostrar un usuario por ID
@@ -28,7 +29,7 @@ function getUserbyId(id){
         apellido.value=data.apellido;
         email.value=data.email;
         usuario.value=data.usuario;
-        contraseña.value=data.contraseña;
+        contrasenia.value=data.password;
 
         guardar.addEventListener("click",(e)=>{
         e.preventDefault()
@@ -42,7 +43,7 @@ function getUserbyId(id){
                     apellido: apellido.value,
                     email: email.value,
                     usuario: usuario.value,
-                    contraseña: contraseña.value,
+                    password: contrasenia.value,
                   }),
                 })
             .then(response => response.json())
@@ -58,11 +59,17 @@ function getUserbyId(id){
                 })
             .then(response => response.json())
             .then(data => { 
+
+                console.log(data);
                 location.reload()
             })
         })
     })
+    .catch( (e) =>{
+        console.error(e);
+        localStorage.removeItem('idpoke');
+        window.location.href="login.html"
+    })
 }
-
 // Muestra solo uno ( por ID)
-getUserbyId('63a3d69975e20d25836d0b9e');
+getUserbyId(idusuario);

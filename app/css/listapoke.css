@@ -1,6 +1,14 @@
 img {
     width: 100px;
 }
+body {
+    background-image: url(../img/Profile.jpg);
+    background-image: url(../img/fondo_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/fondo_1.jpg");
+}
 /*Animacion letra escribiendo*/
 h1{
     text-align: center;
@@ -9,7 +17,7 @@ h1{
     font-size: 47px;
     white-space: nowrap;
     border-right: 4px solid;
-    width: 11ch;
+    width: 12ch;
     animation: typing 2s steps(12), blink .5s infinite step-end alternate;
     overflow:hidden;
     text-align: center;
@@ -33,6 +41,7 @@ i{
 }
 .modal-header{
     background-color: #2db973;
+    
 }
 .btn.btn-success{
     background-color: #2db973;
