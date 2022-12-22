@@ -1,12 +1,13 @@
 // fetchData()
 const img = document.getElementById('imagen');
-let arrayMoment=[]
+let arrayMoment=[];
 
 const fetchimg = async (id) => {
     const pokemonos = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const dataimg = await pokemonos.json();
     img.setAttribute('src', dataimg.sprites.other.dream_world.front_default);
 }
+let idusuario = JSON.parse(localStorage.getItem('idpoke'));
 const fetchData = async () => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/generation/generation-i`);
@@ -87,9 +88,10 @@ const llenarSelect = (lista) => {
 // Mostrar un usuario por ID
     
 
-        fetch(`http://localhost:3000/api/usuarios/63a231c6bc21e97d1b6747e3`)
+        fetch(`http://localhost:3000/api/usuarios/${idusuario}`)
         .then(response => response.json())
         .then(data => {
+            console.log('VACOMI MIRA AQUI PLEASE:');
             console.log(data)
             
             arrayMoment=[...data.pokefavoritos]
@@ -102,7 +104,7 @@ const llenarSelect = (lista) => {
         llenarSelect()
         arrayMoment.push(name)
         // console.log(arrayMoment)
-        let url="http://localhost:3000/api/usuarios/63a231c6bc21e97d1b6747e3"
+        let url=`http://localhost:3000/api/usuarios/${idusuario}`
 
     let payload = {
         // nombre:"Michel",

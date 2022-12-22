@@ -84,9 +84,9 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-// let obtusuarios= [];
+let obtusuarios= [];
 
-formulario.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', async(e) => {
 	e.preventDefault();
 
 	const terminos = document.getElementById('terminos');
@@ -98,8 +98,15 @@ formulario.addEventListener('submit', (e) => {
 		let correo= document.getElementById("correo");
 		let password= document.getElementById("password");
 
+		const res1 = await fetch(`http://localhost:3000/api/usuarios`);
+		obtusuarios = await res1.json();
+		const arrhay = obtusuarios.filter((u) => u.usuario  === usuario.value)
+		if(arrhay.length > 0){
+			alert('El usuario ya existe, favor cambie de usuario por uno distinto')
+			return;
+		}
 		
-		fetch(`http://localhost:3000/api/usuarios`, {
+		await fetch(`http://localhost:3000/api/usuarios`, {
 			method: 'POST',
 			mode: 'cors',
 			headers: {'Content-Type': 'application/json'},
@@ -111,8 +118,17 @@ formulario.addEventListener('submit', (e) => {
 			password:password.value,
 			})
 		})
-	
-		formulario.reset();
+
+		// VACOMI MIRA:
+		const res = await fetch(`http://localhost:3000/api/usuarios`);
+		const usuariosbdd = await res.json();
+
+		console.log('Vacomi mira:');
+		const usercap =await usuariosbdd.filter( (uss) => uss.usuario === usuario.value)
+
+		localStorage.setItem('idpoke', JSON.stringify(usercap[0]._id) );
+
+		// formulario.reset();
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 
 		setTimeout(() => { 

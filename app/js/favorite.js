@@ -1,41 +1,59 @@
-
-const tabla = document.querySelector('#lista-usuarios tbody');
-            
 let boton = document.getElementById("mostrar")
+let presentacion = document.getElementById('presentacion')
+const contenedorpoke = document.getElementById('lists__pokemons');
 
-// let obtusuarios = []
 let idusuario = JSON.parse(localStorage.getItem('idpoke'));
+let username;
+let arrpokemones = [];
 
 console.log('Mostramos el id del usuario');
 console.log(idusuario);
+/*** AÑADIENDO CODIGO DE VACOMI ****/
 
-boton.addEventListener("click", function() {
+document.addEventListener('DOMContentLoaded', async() => {
+    await cargarUsuarios();
+})
+
+// boton.addEventListener("click", function() {
     function cargarUsuarios() {
         fetch(`http://localhost:3000/api/usuarios/${idusuario}`)
-            .then(respuesta => respuesta.json()) //Indicamos el formato en que se desea obtener la información
-            .then(usuarios => {
-                console.log(usuarios)
-                
-                 usuarios.pokefavoritos.forEach( (pokemon, numero) => {
-                     const row = document.createElement('tr');
-                        row.innerHTML += `
-                          <td>${pokemon}</td>
-                         `;
-                        // console.log(numero);
-                      DataPokemons(pokemon, numero);
-
+            .then(respuesta => respuesta.json())
+            .then(usuario => {
+                console.log(usuario)
+                username = usuario.usuario;
+                console.log(username);
+                console
+                if(usuario.pokefavoritos.length < 1) {
+                    const titulo = `<h1 class="text-center mt-4 mb-4">${username}<span class="text-success"> aún no tienes pokemones favoritos:🥵 Añadelos <a href="listapoke.html">aquí</a></span></h1>`
+                     presentacion.innerHTML = titulo;
+                }else {
+                    // MOSTRAMOS PORQUE SI HAY FAVORITOS
+                    console.log('Estoy en el else');
+                    console.log(usuario.pokefavoritos.length);
+                    const titulo = `<h1 class="text-center mt-4 mb-4">${username}<span class="text-success"> aqui estan tus pokemones favoritos:🥵</span></h1>`
+                    presentacion.innerHTML = titulo;
+                    
+                    usuario.pokefavoritos.forEach((pokemon, numero) => {
+                        console.log(pokemon);
+                        console.log(numero);
+                        arrpokemones.push(pokemon);
+                        console.log(arrpokemones);
+                        DataPokemons(pokemon, numero);
                     })
+                }
+
                 
             }) // Aquí mostramos dicha información
             .catch(error => console.log('Hubo un error : ' + error.message))
     }
-    cargarUsuarios();
-})
+    // cargarUsuarios();
+// })
   
 const lists__pokemons = document.getElementById('lists__pokemons')
 const buttons = document.getElementById('buttons')
 
 const DataPokemons = async (data, n) => {
+    // console.log(arrpokemones);
     lists__pokemons.innerHTML = '';
     try {
         const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${data}`)
@@ -57,14 +75,36 @@ const DataPokemons = async (data, n) => {
 
 
 // Elimando pokemonos - no tocar
-window.document.addEventListener('DOMContentLoaded', () => {
-    const contenedorpoke = document.getElementById('lists__pokemons');
-
     contenedorpoke.addEventListener('click', (e) => {
-        console.log(e.target)
-    })
+        if(e.target.textContent === 'Eliminar') {
+            const pokeeliminar = e.target.previousElementSibling.textContent;
 
-})
+            let respuesta = confirm(`Estas seguro de eliminar a ${pokeeliminar}?`)
+
+            if(respuesta) {
+                console.log(arrpokemones.indexOf(pokeeliminar));
+                arrpokemones.splice(arrpokemones.indexOf(pokeeliminar), 1)
+
+                eliminarPokemoncito(arrpokemones);
+
+            }
+
+        }
+       
+    }) // Fin de eliminar
+
+    async function eliminarPokemoncito() {
+        await fetch(`http://localhost:3000/api/usuarios/${idusuario}`, {
+                    method: "PUT",
+                    mode: "cors",
+                    headers : {'Content-Type': 'application/json'},
+                    body: JSON.stringify({pokefavoritos: arrpokemones})
+        })
+        arrpokemones = []
+        cargarUsuarios()
+
+    }
+
 
 
 /*** FAVORITOS ***/
