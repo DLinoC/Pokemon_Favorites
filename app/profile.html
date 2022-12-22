@@ -11,9 +11,11 @@
     <link rel="shortcut icon" href="https://pokedex.petrovicstefan.rs/images/pikachu.png" type="image/x-icon">
     <!-- Link del CSS -->
     <link rel="stylesheet" href="./css/profile.css">
+    <!-- Link de Animación -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Pokémon Favorite</title>
 </head>
-<body>
+<body class="animate__animated animate__fadeInLeft">
     <!-- Menú de Navegación -->
     <header class="bg-warning">
         <div class="container">
@@ -35,7 +37,6 @@
             </nav>
         </div>
     </header>
-
     <div class="container-sm shadow border border-2 rounded py-4 px-4 mt-5" style="max-width: 600px;">
         <div class="container w-50 bg-color-light d-flex justify-content-center my-4">
             <form id="form">
@@ -78,9 +79,27 @@
             </div>           
 
             <div class="text-center mt-4">
-                <button type="submit" id="boton" class="btn btn-lg me-5 botones" data-bs-target="#exampleModal">Editar</button>
-                <button type="submit" id="boton" class="btn btn-lg me-5 botones" data-bs-target="#exampleModal">Guardar</button>
-                <button type="submit" id="boton" class="btn btn-lg botones" data-bs-target="#exampleModal">Eliminar</button>
+                <button type="submit" id="editar" class="btn btn-lg me-5 botones" data-bs-target="#exampleModal">Editar</button>
+                <button type="submit" id="guardar" class="btn btn-lg me-5 botones" data-bs-target="#exampleModal">Guardar</button>
+                <button type="button" class="btn btn-lg botones" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade animate__animated animate__wobble" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5 textito" id="exampleModalLabel">¿Estás seguro de eliminar los datos?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <img src="https://media.tenor.com/uCoZ_h8QmV8AAAAj/angry-pikachu.gif" alt=""> Si eliminas, se pierden los pokémones favoritos.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" id="eliminar" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
