@@ -25,12 +25,10 @@ const indicarLlenado = (tipo) => {
 formhtml.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!formhtml.checkValidity()) {
-        //LA VALIDACION DE LLENADAO ESTA MAL
         indicarLlenado('llenado')
         e.stopPropagation()
         formhtml.classList.add('was-validated')
     }else{
-        //TODO VA BIEN
         const valoruser = document.getElementById('user');
         console.log(valoruser)
         const valorpass = document.getElementById('password');
@@ -38,21 +36,11 @@ formhtml.addEventListener('submit', async (e) => {
         // Mostrar todos los usuarios
         let usuariosbdd = [];
 
-        const response = await fetch('http://localhost:3000/api/usuarios');
-        const data = await response.json();
-        usuariosbdd = [...data];
-
-
-        let uss = usuariosbdd.filter( (obj) =>obj.usuario === valoruser.value);
-        let pas = usuariosbdd.filter( (obj) =>obj.password === valorpass.value);
+        const response = await fetch('http://localhost:3000/api/usuarios'); const data = await response.json(); usuariosbdd = [...data]; let uss = usuariosbdd.filter( (obj) =>obj.usuario === valoruser.value); let pas = usuariosbdd.filter( (obj) =>obj.password === valorpass.value);
         
         if(uss.length > 0 && pas.length > 0) {
-            console.log(uss);
-            console.log(uss[0]._id);
-
 
             localStorage.setItem('idpoke', JSON.stringify(uss[0]._id) );
-
             window.location.href = "favopoke.html"
             formhtml.reset();
         } else {

@@ -1,3 +1,4 @@
+
 body {
     background-image: url(../img/Profile.jpg);
     background-repeat: no-repeat;
@@ -5,6 +6,9 @@ body {
 }
 img {
     width: 100px;
+}
+.animate__animated.animate__fadeInLeft {
+    --animate-duration: 1.5s;
 } 
 .container #img{
     width: 500px;
@@ -15,4 +19,13 @@ img {
 .botones{
     background-color: #0c1542;
     color: white;
+}
+.modal-header{
+    background-color:red;    
+}
+.textito{
+    color: white;
+}
+.btn-success{
+    background-color: #2db973;
 }

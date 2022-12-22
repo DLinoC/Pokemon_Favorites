@@ -1,43 +1,30 @@
 let boton = document.getElementById("mostrar")
 let presentacion = document.getElementById('presentacion')
-const contenedorpoke = document.getElementById('lists__pokemons');
+// const contenedorpoke = document.getElementById('lists__pokemons');
 
-let idusuario = JSON.parse(localStorage.getItem('idpoke'));
-let username;
+// let idusuario = JSON.parse(localStorage.getItem('idpoke'));
+// let username;
+const contenedorpoke = document.getElementById('lists__pokemons'); let idusuario = JSON.parse(localStorage.getItem('idpoke')); let username;
 let arrpokemones = [];
-
-console.log('Mostramos el id del usuario');
-console.log(idusuario);
-/*** AÑADIENDO CODIGO DE VACOMI ****/
-
 document.addEventListener('DOMContentLoaded', async() => {
     await cargarUsuarios();
 })
-
-// boton.addEventListener("click", function() {
     function cargarUsuarios() {
         fetch(`http://localhost:3000/api/usuarios/${idusuario}`)
             .then(respuesta => respuesta.json())
             .then(usuario => {
-                console.log(usuario)
+
                 username = usuario.usuario;
-                console.log(username);
-                console
+
                 if(usuario.pokefavoritos.length < 1) {
-                    const titulo = `<h1 class="text-center mt-4 mb-4">${username}<span class="text-success"> aún no tienes pokemones favoritos:🥵 Añadelos <a href="listapoke.html">aquí</a></span></h1>`
+                    const titulo = `<h1 class="text-center mt-4 mb-4">${username}<span class="text-white"> aún no tienes pokemones favoritos:🥵 Añadelos <a href="listapoke.html" class="text-warning">aquí</a></span></h1>`
                      presentacion.innerHTML = titulo;
                 }else {
-                    // MOSTRAMOS PORQUE SI HAY FAVORITOS
-                    console.log('Estoy en el else');
-                    console.log(usuario.pokefavoritos.length);
-                    const titulo = `<h1 class="text-center mt-4 mb-4">${username}<span class="text-success"> aqui estan tus pokemones favoritos:🥵</span></h1>`
+                    const titulo = `<h1 class="text-center fw-bold text-white mt-4 mb-4">${username}<span class="text-warning"> aqui estan tus pokemones favoritos:</span></h1>`
                     presentacion.innerHTML = titulo;
                     
                     usuario.pokefavoritos.forEach((pokemon, numero) => {
-                        console.log(pokemon);
-                        console.log(numero);
                         arrpokemones.push(pokemon);
-                        console.log(arrpokemones);
                         DataPokemons(pokemon, numero);
                     })
                 }
@@ -46,9 +33,6 @@ document.addEventListener('DOMContentLoaded', async() => {
             }) // Aquí mostramos dicha información
             .catch(error => console.log('Hubo un error : ' + error.message))
     }
-    // cargarUsuarios();
-// })
-  
 const lists__pokemons = document.getElementById('lists__pokemons')
 const buttons = document.getElementById('buttons')
 
@@ -62,7 +46,7 @@ const DataPokemons = async (data, n) => {
         templateHtml=`
         <div class="pokemon__img" id="${n}">
         <img src=${resul.sprites.other.dream_world.front_default} alt=${resul.name}/>
-        <p>${resul.name}</p>
+        <p class="text-white">${resul.name}</p>
         <button id="${n}" class="btn btn-danger">Eliminar</button>
         </div>
         `

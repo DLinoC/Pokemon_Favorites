@@ -1,13 +1,13 @@
 // fetchData()
-const img = document.getElementById('imagen');
-let arrayMoment=[];
+
 
 const fetchimg = async (id) => {
     const pokemonos = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const dataimg = await pokemonos.json();
     img.setAttribute('src', dataimg.sprites.other.dream_world.front_default);
 }
-let idusuario = JSON.parse(localStorage.getItem('idpoke'));
+const img = document.getElementById('imagen');
+let arrayMoment=[]; let idusuario = JSON.parse(localStorage.getItem('idpoke'));
 const fetchData = async () => {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/generation/generation-i`);
@@ -21,7 +21,7 @@ const fetchData = async () => {
         console.log(error)
     }
 }
-    fetchData()
+fetchData()
 
     //Lenar select
 
@@ -91,11 +91,7 @@ const llenarSelect = (lista) => {
         fetch(`http://localhost:3000/api/usuarios/${idusuario}`)
         .then(response => response.json())
         .then(data => {
-            console.log('VACOMI MIRA AQUI PLEASE:');
-            console.log(data)
-            
             arrayMoment=[...data.pokefavoritos]
-            console.log(arrayMoment)
         } )
    
 
